@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHA-256</title>
+</head>
+<body>
+    <form>
+        <input type="number" placeholder="Enter a decimal number" id="input" autofocus />
+        <input type="number" placeholder="right shift n" id="input_n" onchange="getInputValue()" />
+        <button type="button" onclick="getInputValue()">Calculate</button>
+    </form>
+
+    <div class="show">
+        <h2 id="decimal">0</h1>
+        <h2 id="binary">0</h1>
+        <h2 id="SHR_n">0</h1>
+
+    </div>
+
+    <script src="helper.js"></script>
+</body>
+</html>
