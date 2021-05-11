@@ -26,3 +26,4 @@ function SHR_n(input, n){
 function ROTR_n(input, n){  
     return ( ((input >> n ) | (input << (INT_BITS - n))).toString(2).substr(-INT_BITS) );
 }
+
