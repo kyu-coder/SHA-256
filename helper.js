@@ -33,14 +33,14 @@ function sigma_0(input){
     const ROTR_18 = parseInt(ROTR_n(input_binary, 18), 2);
     const SHR_3 = parseInt(SHR_n(input_binary, 3), 2);
 
-    var binary_solution = parseInt
+    var binary_solution = (parseInt
     ( 
         (( ROTR_7 ^ ROTR_18 ) ^ SHR_3)
             .toString(2)
             .replace('-', '')
             .padStart(INT_BITS, '0')
             .replaceAll('0', '2').replaceAll('1', '0').replaceAll('2', '1')
-    , 2).toString(2);
-//sigma_0 works correctly for input value of 16383
+    , 2) + 1).toString(2);
+
     return binary_solution;
 }
