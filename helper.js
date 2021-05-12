@@ -25,3 +25,13 @@ function SHR_n(input, n){
 function ROTR_n(input, n){
     return ( input.slice(-n) + input.slice(0, -n) );
 }
+
+function sigma_0(input){
+    input_binary = input.toString(2).padStart(INT_BITS, '0');
+    
+    const ROTR_7 = parseInt(ROTR_n(input_binary, 7), 2);
+    const ROTR_18 = parseInt(ROTR_n(input_binary, 18), 2);
+    const SHR_3 = parseInt(SHR_n(input_binary, 3), 2);
+
+    return ( ( ROTR_7 ^ ROTR_18 ) ^ SHR_3 );
+}
