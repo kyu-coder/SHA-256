@@ -28,10 +28,21 @@ function ROTR_n(input, n){
 
 function sigma_0(input){
     input_binary = input.toString(2).padStart(INT_BITS, '0');
-    
+
     const ROTR_7 = parseInt(ROTR_n(input_binary, 7), 2);
     const ROTR_18 = parseInt(ROTR_n(input_binary, 18), 2);
     const SHR_3 = parseInt(SHR_n(input_binary, 3), 2);
 
-    return ( ( ROTR_7 ^ ROTR_18 ) ^ SHR_3 );
+    var binary_solution = parseInt
+    ( 
+        (( ROTR_7 ^ ROTR_18 ) ^ SHR_3)
+            .toString(2)
+            .replace('-', '')
+            .padStart(INT_BITS, '0')
+            .replaceAll('0', '2').replaceAll('1', '0').replaceAll('2', '1')
+    , 2).toString(2);
+
+    
+
+    return binary_solution;
 }
