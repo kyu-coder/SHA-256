@@ -27,20 +27,47 @@ function ROTR_n(input, n){
 }
 
 function sigma_0(input){
-    input_binary = input.toString(2).padStart(INT_BITS, '0');
+    
+    var decimal = sigma_n(input, 7, 18, 3);
 
-    const ROTR_7 = parseInt(ROTR_n(input_binary, 7), 2);
-    const ROTR_18 = parseInt(ROTR_n(input_binary, 18), 2);
-    const SHR_3 = parseInt(SHR_n(input_binary, 3), 2);
-
-    var binary_solution = (parseInt
-    ( 
-        (( ROTR_7 ^ ROTR_18 ) ^ SHR_3)
-            .toString(2)
-            .replace('-', '')
-            .padStart(INT_BITS, '0')
-            .replaceAll('0', '2').replaceAll('1', '0').replaceAll('2', '1')
-    , 2) + 1).toString(2);
+    var binary_solution = decimal_to_unsignedTwosComplement(decimal);
 
     return binary_solution;
+}
+
+function sigma_1(input){
+    
+    var decimal = sigma_n(input, 17, 19, 10);
+
+    var binary_solution = decimal_to_unsignedTwosComplement(decimal);
+
+    return binary_solution;
+}
+
+
+function sigma_n(input, a, b, c){
+    input_binary = input.toString(2).padStart(INT_BITS, '0');
+
+    const ROTR_a = parseInt(ROTR_n(input_binary, a), 2);
+    const ROTR_b = parseInt(ROTR_n(input_binary, b), 2);
+    const SHR_c = parseInt(SHR_n(input_binary, c), 2);
+
+    var binary_solution = ( ROTR_a ^ ROTR_b ) ^ SHR_c;
+
+    return binary_solution;
+}
+
+function decimal_to_unsignedTwosComplement(decimal){
+    
+    if (decimal < 0){
+        var unsignedTwosComplement = (parseInt(decimal.toString(2)
+            .replace('-', '')
+            .padStart(INT_BITS, '0')
+            .replaceAll('0', '2').replaceAll('1', '0').replaceAll('2', '1'), 2) + 1).toString(2);
+    } else {
+        var unsignedTwosComplement = (decimal.toString(2).padStart(INT_BITS, '0'));
+    }
+
+    return unsignedTwosComplement;
+
 }
