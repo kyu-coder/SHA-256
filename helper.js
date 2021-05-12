@@ -41,8 +41,6 @@ function sigma_0(input){
             .padStart(INT_BITS, '0')
             .replaceAll('0', '2').replaceAll('1', '0').replaceAll('2', '1')
     , 2).toString(2);
-
-    
-
+//sigma_0 works correctly for input value of 16383
     return binary_solution;
 }
