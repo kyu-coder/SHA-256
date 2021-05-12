@@ -6,20 +6,28 @@
 </head>
 <body>
     <form>
-        <input type="number" placeholder="Enter a decimal number" id="input" autofocus />
-        <input type="number" placeholder="n" id="input_n" onchange="getInputValue()" />
-        <button type="button" onclick="getInputValue()">Calculate</button>
+        <input type="number" placeholder="Enter a decimal number" id="input" autofocus onkeypress="getInputValue()" />
+        
     </form>
 
     <div class="show">
         <h1>Decimal representation:</h1>
         <h2 id="decimal">0</h1>
+
         <h1>Binary representation:</h1>
         <h2 id="binary">0</h1>
-        <h1>Shift right n:</h1>
-        <h2 id="SHR_n">0</h1>
-        <h1>Rotate right n:</h1>
-        <h2 id="ROTR_n">0</h1>
+
+        <h1>sigma_0</h1>
+        <h2 id="sigma_0">0</h1>
+
+        <h1>sigma_1</h1>
+        <h2 id="sigma_1">0</h1>
+
+        <h1>sigma_upper_0</h1>
+        <h2 id="sigma_upper_0">0</h1>
+
+        <h1>sigma_upper_1</h1>
+        <h2 id="sigma_upper_1">0</h1>
     </div>
 
     <script src="helper.js"></script>
