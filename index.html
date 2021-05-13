@@ -6,14 +6,14 @@
 </head>
 <body>
     <form>
-        <input type="number" placeholder="Enter a decimal number" id="input" autofocus onkeypress="getInputValue()" />
+<!--        <input type="number" placeholder="Enter a decimal number" id="input" autofocus onkeypress="getInputValue()" /> -->
+        <input type="text" placeholder="Enter binary" id="input" autofocus onkeypress="getInputValue()" />
+        <input type="text" placeholder="Enter binary" id="input2"  onkeypress="getInputValue()" />
+        <input type="text" placeholder="Enter binary" id="input3"  onkeypress="getInputValue()" />
         
     </form>
 
     <div class="show">
-        <h1>Decimal representation:</h1>
-        <h2 id="decimal">0</h1>
-
         <h1>Binary representation:</h1>
         <h2 id="binary">0</h1>
 
@@ -28,6 +28,13 @@
 
         <h1>sigma_upper_1</h1>
         <h2 id="sigma_upper_1">0</h1>
+
+        <h1>choice</h1>
+        <h2 id="binary_1_display">0</h2>
+        <h2 id="binary_2_display">0</h2>
+        <h2 id="binary_3_display">0</h2>
+        <h2 id="choice_outcome">0</h2>
+
     </div>
 
     <script src="helper.js"></script>

@@ -1,26 +1,39 @@
 const displayContainer = document.querySelector(".show"),
-    decimal = displayContainer.querySelector("#decimal"),
     binary = displayContainer.querySelector("#binary"),
     sigma_0_display = displayContainer.querySelector("#sigma_0"),
-    sigma_1_display = displayContainer.querySelector("#sigma_1");
-    sigma_upper_0_display = displayContainer.querySelector("#sigma_upper_0");
-    sigma_upper_1_display = displayContainer.querySelector("#sigma_upper_1");
+    sigma_1_display = displayContainer.querySelector("#sigma_1"),
+    sigma_upper_0_display = displayContainer.querySelector("#sigma_upper_0"),
+    sigma_upper_1_display = displayContainer.querySelector("#sigma_upper_1"),
+    binary_1_display = displayContainer.querySelector("#binary_1_display"),
+    binary_2_display = displayContainer.querySelector("#binary_2_display"),
+    binary_3_display = displayContainer.querySelector("#binary_3_display"),
+    choice_outcome = displayContainer.querySelector("#choice_outcome");
 
 const INT_BITS = 32;
 
 function getInputValue(){
 
-    var inputVal = +document.getElementById("input").value;
-    var inputVal_binary = inputVal.toString(2).padStart(INT_BITS, '0');
+    var inputVal = document.getElementById("input").value.padStart(INT_BITS, '0');
+    var inputVal2 = document.getElementById("input2").value.padStart(INT_BITS, '0');
+    var inputVal3 = document.getElementById("input3").value.padStart(INT_BITS, '0');
 
-    decimal.innerText = inputVal;
-    binary.innerText = inputVal_binary;
+    binary.innerText = inputVal;
     sigma_0_display.innerText = sigma_0(inputVal);
     sigma_1_display.innerText = sigma_1(inputVal);
     sigma_upper_0_display.innerText = sigma_upper_0(inputVal);
     sigma_upper_1_display.innerText = sigma_upper_1(inputVal);
-    
-    
+    binary_1_display.innerText = inputVal;
+    binary_2_display.innerText = inputVal2;
+    binary_3_display.innerText = inputVal3;
+    choice_outcome.innerText = choice(inputVal, inputVal2, inputVal3);
+}
+
+function choice(x, y, z){
+    let str='';
+    for (let i = 0 ; i < 32 ; i++){
+        (x[i] === '0' ? str = str + z[i] : str = str + y[i]);
+    }
+    return str;
 }
 
 function SHR_n(input, n){
