@@ -7,7 +7,8 @@ const displayContainer = document.querySelector(".show"),
     binary_1_display = displayContainer.querySelector("#binary_1_display"),
     binary_2_display = displayContainer.querySelector("#binary_2_display"),
     binary_3_display = displayContainer.querySelector("#binary_3_display"),
-    choice_outcome = displayContainer.querySelector("#choice_outcome");
+    choice_outcome = displayContainer.querySelector("#choice_outcome"),
+    majority_outcome = displayContainer.querySelector("#majority_outcome");
 
 const INT_BITS = 32;
 
@@ -26,12 +27,21 @@ function getInputValue(){
     binary_2_display.innerText = inputVal2;
     binary_3_display.innerText = inputVal3;
     choice_outcome.innerText = choice(inputVal, inputVal2, inputVal3);
+    majority_outcome.innerText = majority(inputVal, inputVal2, inputVal3);
 }
 
 function choice(x, y, z){
     let str='';
     for (let i = 0 ; i < 32 ; i++){
         (x[i] === '0' ? str = str + z[i] : str = str + y[i]);
+    }
+    return str;
+}
+
+function majority(x, y, z){
+    let str='';
+    for (let i = 0 ; i < 32 ; i++){
+        ( (x[i] === y[i] | x[i] === z[i]) ? str = str + x[i] : str = str + y[i]);
     }
     return str;
 }
